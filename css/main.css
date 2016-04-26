@@ -1,0 +1,32 @@
+* {
+	text-align: center;
+}
+
+.btn, .btn-primary {
+	width: 25%;
+	position: relative;
+	top: 100px;
+	font-size: 20px
+}
+#commentHistory {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	top: 100px;
+	text-align: center;
+}
+
+#commentHistory li {
+	font-size: 20px;
+	list-style-type: none;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.names {
+	font-weight: bolder;
+	border-top: 10px solid black;
+	border-radius: 10px;
+	margin-top: 10px;
+	padding-top: 10px;
+}

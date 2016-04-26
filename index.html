@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comment List App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel = "stylesheet" href = "css/bootstrap.min.css">
+	<link rel = "stylesheet" href = "css/animate.css">
+	<link rel = "stylesheet" href = "css/main.css">
+</head>
+<body>
+
+	<button type="button" class="btn btn-primary animated zoomIn" data-toggle="modal" data-target="#exampleModal" data-whatever="Name">Leave a New Comment</button>
+
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="exampleModalLabel">Enter a New Comment</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="form-group">
+	            <label for="recipient-name" class="control-label">Enter Your Name:</label>
+	            <input type="text" placeholder = "Name" class="form-control" id="recipient-name">
+	          </div>
+	          <div class="form-group">
+	            <label for="message-text" class="control-label">Leave Your Comment:</label>
+	            <textarea class="form-control" id="message-text" placeholder = "Comment"></textarea>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick = "addComment()">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<ul id = "commentHistory"></ul>
+
+	<script src = "js/jquery-1.12.3.min.js"></script>
+	<script src = "js/bootstrap.min.js"></script>
+	<script src = "js/main.js"></script>
+</body>
+</html>
