@@ -9,24 +9,35 @@
 	font-size: 20px
 }
 #commentHistory {
-	margin: 0;
 	padding: 0;
 	position: relative;
 	top: 100px;
-	text-align: center;
+	border: 1px solid black;
+	border-bottom: none;
+	width: 50%;
+	margin: 2rem auto;
 }
 
-#commentHistory li {
+#commentHistory div {
 	font-size: 20px;
-	list-style-type: none;
-	width: 50%;
 	margin: 0 auto;
 }
 
 .names {
 	font-weight: bolder;
-	border-top: 10px solid black;
-	border-radius: 10px;
-	margin-top: 10px;
-	padding-top: 10px;
+	margin-top: 1rem;
+	text-align: left;
+	padding-left: 1rem;
+}
+.editButton {
+	float: right;
+}
+.comments {
+	border-bottom: 1px solid black;
+	text-align: left;
+	padding-left: 1rem;
+}
+label span {
+	font-weight: bolder;
+	color: red;
 }

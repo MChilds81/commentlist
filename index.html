@@ -26,6 +26,10 @@
 	            <input type="text" placeholder = "Name" class="form-control" id="recipient-name">
 	          </div>
 	          <div class="form-group">
+	            <label for="recipient-password" class="control-label">Enter a password:</label>
+	            <input type="password" placeholder = "Password" class="form-control" id="recipient-password">
+	          </div>
+	          <div class="form-group">
 	            <label for="message-text" class="control-label">Leave Your Comment:</label>
 	            <textarea class="form-control" id="message-text" placeholder = "Comment"></textarea>
 	          </div>
@@ -39,7 +43,81 @@
 	  </div>
 	</div>
 
-	<ul id = "commentHistory"></ul>
+	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="exampleModalLabel">Edit This Comment</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="form-group">
+	            <label for="recipient-name" class="control-label">Enter the password for this username:</label>
+	            <input type="password" placeholder = "Password" class="form-control" id="recipient-password2">
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick = "checkPassword2()">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="exampleModalLabel">Edit This Comment</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="form-group">
+	            <label for="recipient-name" class="control-label"><span>That password is incorrect.</span><br>  Please enter the correct password:</label>
+	            <input type="password" placeholder = "Password" class="form-control" id="recipient-password3">
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick = "checkPassword3()">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="exampleModalLabel">Edit Your Comment</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form>
+	          <div class="form-group">
+	            <label for="recipient-name" class="control-label">Name:</label>
+	            <input type="text" placeholder = "Name" class="form-control" id="recipient-name4">
+	          </div>
+	          
+	          <div class="form-group">
+	            <label for="message-text" class="control-label">Edit Your Comment:</label>
+	            <textarea class="form-control" id="message-text4" placeholder = "Comment"></textarea>
+	          </div>
+	        </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" onclick = "submitNewComment()">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div id = "commentHistory"></div>
 
 	<script src = "js/jquery-1.12.3.min.js"></script>
 	<script src = "js/bootstrap.min.js"></script>
