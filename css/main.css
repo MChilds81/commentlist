@@ -23,13 +23,28 @@
 	margin: 0 auto;
 }
 
+#commentHistory div:nth-child(4n-3) {
+	color: red;
+}
+#commentHistory div:nth-child(4n) {
+	color: blue;
+}
+#commentHistory div:nth-child(4n-2) {
+	color: red;
+}
+#commentHistory div:nth-child(4n-1) {
+	color: blue;
+}
+
 .names {
+	height: 40px;
 	font-weight: bolder;
-	margin-top: 1rem;
 	text-align: left;
 	padding-left: 1rem;
 }
-.editButton {
+.editButton, .deleteButton {
+	height: 30px;
+	font-weight: bold;
 	float: right;
 }
 .comments {

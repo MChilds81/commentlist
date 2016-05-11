@@ -38,8 +38,9 @@ function addComment() {
 	newCommentItem.setAttribute("id", "comment" + commentArray.length);
 	var nameText = document.createTextNode(name);
 	var commentText = document.createTextNode(comment);
-	newNameItem.appendChild(nameText);
-	//Create edit comment button that will be pull up a modal.
+	
+
+	//Create edit comment button that will pull up a new modal.
 	var editButton = document.createElement("button");
 	editButton.setAttribute("type","button");
 	editButton.setAttribute("class","editButton");
@@ -47,11 +48,28 @@ function addComment() {
 	editButton.setAttribute("data-toggle","modal");
 	editButton.setAttribute("data-target","#exampleModal2");
 	editButton.setAttribute("data-whatever","Name");
-	editButton.setAttribute("onclick","getID()");
+	editButton.setAttribute("onclick","getIDEdit()");
 	var editButtonText = document.createTextNode("Edit");
 	editButton.appendChild(editButtonText);
+	newNameItem.appendChild(nameText);
 	newNameItem.appendChild(editButton);
+	
+
+	//Create delete comment button that will delete current comment.
+	var deleteButton = document.createElement("button");
+	deleteButton.setAttribute("type","button");
+	deleteButton.setAttribute("class","deleteButton");
+	deleteButton.setAttribute("id","deleteButton" + commentArray.length);
+	deleteButton.setAttribute("data-toggle","modal");
+	deleteButton.setAttribute("data-target","#exampleModal5");
+	deleteButton.setAttribute("data-whatever","Name");
+	deleteButton.setAttribute("onclick","getIDDelete()");
+	var deleteButtonText = document.createTextNode("Delete");
+	deleteButton.appendChild(deleteButtonText);
 	newCommentItem.appendChild(commentText);
+	newNameItem.appendChild(deleteButton);
+
+
 	commentList.appendChild(newNameItem);
 	commentList.appendChild(newCommentItem);
 	//close the modal after comment is submitted
@@ -61,20 +79,27 @@ function addComment() {
 }
 //function is called on click of edit button.  Will determine the
 //id of which button was clicked.
-function getID () {
+function getIDEdit () {
 	var e = window.event,
 	btn = e.target || e.srcElement;
 	buttonID = btn.id;
 	var commentNumberText = buttonID.substring(10,buttonID.length);
-	console.log(commentNumberText);
 	commentNumber = Number(commentNumberText);
 	document.getElementById("recipient-password2").value = "";
-	console.log(btn.id);
+	document.getElementById("recipient-password5").value = "";
+}
+function getIDDelete () {
+	var e = window.event,
+	btn = e.target || e.srcElement;
+	buttonID = btn.id;
+	var commentNumberText = buttonID.substring(12,buttonID.length);
+	commentNumber = Number(commentNumberText);
+	document.getElementById("recipient-password2").value = "";
+	document.getElementById("recipient-password5").value = "";
 }
 //function is called when password is submitted the first time
 function checkPassword2() {
 	var password2 = document.getElementById("recipient-password2").value;
-	console.log(password2);
 	if (!(password2 === commentArray[commentNumber-1].userPassword)) {
 		$('#exampleModal2').modal('hide');
 		document.getElementById("recipient-password2").value = "";
@@ -113,4 +138,41 @@ function submitNewComment() {
 	commentArray[commentNumber-1].userComment = document.getElementById("message-text4").value;
 	document.getElementById("comment" + commentNumber).innerHTML = commentArray[commentNumber-1].userComment;
 	$('#exampleModal4').modal('hide');
+}
+function checkPassword5() {
+	var password5 = document.getElementById("recipient-password5").value;
+	if (!(password5 === commentArray[commentNumber-1].userPassword)) {
+		$('#exampleModal5').modal('hide');
+		document.getElementById("recipient-password5").value = "";
+		$('#exampleModal6').modal('show');
+		document.getElementById("recipient-password6").value = "";
+	}
+	else {
+		deleteComment5();
+	}
+}
+function checkPassword6() {
+	var password6 = document.getElementById("recipient-password6").value;
+	if (!(password6 === commentArray[commentNumber-1].userPassword)) {
+		$('#exampleModal6').modal('show');
+		document.getElementById("recipient-password6").value = "";
+		$('#exampleModal6').modal('show');
+	}
+	else {
+		deleteComment6();
+	}
+}
+function deleteComment5() {
+	$('#exampleModal5').modal('hide');
+	var deleteName = document.getElementById("name" + commentNumber);
+	deleteName.parentNode.removeChild(deleteName);
+	var deleteComment = document.getElementById("comment" + commentNumber);
+	deleteComment.parentNode.removeChild(deleteComment);
+}
+function deleteComment6() {
+	$('#exampleModal6').modal('hide');
+	var deleteName = document.getElementById("name" + commentNumber);
+	deleteName.parentNode.removeChild(deleteName);
+	var deleteComment = document.getElementById("comment" + commentNumber);
+	deleteComment.parentNode.removeChild(deleteComment);
 }
