@@ -15,16 +15,20 @@ var buttonID = "";
 
 var commentNumber;
 
+function commentfunction(name, password, comment) {
+	this.userName = name;
+	this.userPassword = password;
+	this.userComment = comment;
+}
+
 function addComment() {
 	var name = document.getElementById("recipient-name").value;
 	var password = document.getElementById("recipient-password").value;
 	var comment = document.getElementById("message-text").value;
+
 	//creates the current comment object based on user's click.
-	var commentObject = {
-		userName: name,
-		userPassword: password,
-		userComment: comment
-	}
+	var commentObject = new commentfunction(name, password, comment);
+	console.log(commentObject)
 	//puts the current comment at the end of the array
 	commentArray.push(commentObject);
 
@@ -99,6 +103,7 @@ function getIDDelete () {
 }
 //function is called when password is submitted the first time
 function checkPassword2() {
+
 	var password2 = document.getElementById("recipient-password2").value;
 	if (!(password2 === commentArray[commentNumber-1].userPassword)) {
 		$('#exampleModal2').modal('hide');
